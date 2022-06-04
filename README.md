@@ -11,4 +11,4 @@ pip install -r requirements.txt
 ```
 python3 main.py
 ```
-Open the localhost in browser.
+Open the localhost URL in browser.

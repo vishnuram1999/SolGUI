@@ -12,13 +12,13 @@ def output(compilerVersion, output_values, myContract):
     file_path = 'contracts/hello_world.sol'
 
     if (method == 1):
-        compile_sol = compile_source(
+        compiled_sol = compile_source(
             myContract,
             output_values = output_values,
             solc_version = compilerVersion
         )
     elif (method == 2):
-        compile_sol = compile_files(
+        compiled_sol = compile_files(
             [file_path],
             output_values = output_values,
             solc_version = compilerVersion
@@ -26,9 +26,19 @@ def output(compilerVersion, output_values, myContract):
     else:
         print("Wrong option")
         
-    print(compile_sol.items())
-    return compile_sol
-
+    contract_id, contract_interface = compiled_sol.popitem()
+    
+    if len(output_values) == 2:
+        both = dict()
+        both['abi'] = contract_interface['abi']
+        both ['bytecode'] = contract_interface['bin']
+        return both
+    elif output_values[0] == 'bin':
+        bytecode = contract_interface['bin']
+        return bytecode
+    elif output_values[0] == 'abi':
+        abi = contract_interface['abi']
+        return abi
 
 @app.route('/')
 
