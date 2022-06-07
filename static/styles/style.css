@@ -1,0 +1,38 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color:black;
+	color: white;
+	text-align: center;
+}
+header {
+	position: relative;
+	background-color:black;
+}
+.dropdown {
+	color:white;
+}
+.welcome-text {
+	position: relative;
+	text-align: center;
+	background-color:black;
+}
+.welcome-text h1 {
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 60px;
+	top: -50px;
+
+}
+.welcome-text h1 span {
+	color: #00fecb;
+}
+.showdata {
+	top: -20px;
+	text-align: center;
+}
+

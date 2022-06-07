@@ -1,5 +1,5 @@
 # Solidity-Compiler-GUI
-This is GUI version of solc to get bin and abi of a smart contract.
+This is GUI version of solc to get bytecode and abi of a smart contract.
 
 ## Installing 
 ```
