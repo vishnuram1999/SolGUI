@@ -1,80 +1,98 @@
 <!DOCTYPE html>
-<!--Code by Divinector (www.divinectorweb.com)-->
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Solidity Compiler GUI</title>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">  
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script>
-            function myFunction() {
-                var compilerVersion = $('#compiler-versions').val()
-                var bin = document.querySelector('#bin').checked;
-                var abi = document.querySelector('#abi').checked;
-                var contractPaste = $('#contractPaste').val()
-                $.ajax({
-                    url: "/join",
-                    type: "POST",
-                    data: {compilerVersion:compilerVersion, bin:bin, abi:abi, contract:contractPaste}          
-                    }).done(function(response) {
-                        var html= "<br><p><b> <b><p>";  
-                        $(".show-data").empty();
-                        response =response.result;
-                        $.each(response,function(key,val){
-                        console.log(val);
-                            html += "<p>"+val+"<p>"                
-                        });
-                        html += "<br>";
-                        $(".show-data").append(html);
-                });
-            }
-        </script>
-    </head>
-    <body>
-        <header>
-            <div class="welcome-text">
-                <h1>Solidity <span>Compiler</span></h1>
-            </div>
-        </header>
-        <div class="dropdown">
-                <label for="compiler-versions">Choose a compiler version:</label><br>
-                <select name="compiler-versions" id="compiler-versions">
-                    <option value="0.8.14">0.8.14</option>
-                    <option value="0.8.13">0.8.13</option>
-                    <option value="0.8.12">0.8.12</option><
-                    <option value="0.8.11">0.8.11</option>
-                    <option value="0.8.10">0.8.10</option>
-                    <option value="0.8.9">0.8.9</option>
-                    <option value="0.8.8">0.8.8</option>
-                    <option value="0.8.7">0.8.7</option>
-                    <option value="0.8.6">0.8.6</option>
-                    <option value="0.8.5">0.8.5</option>
-                    <option value="0.8.4">0.8.4</option>
-                    <option value="0.8.3">0.8.3</option>
-                    <option value="0.8.2">0.8.2</option>
-                    <option value="0.8.1">0.8.1</option>
-                    <option value="0.8.0">0.8.0</option>
-                </select>
-        </div>
-        <div class="checkbox">
-            <label for="outputvalues">Choose the output values required:</label>
-            <div>
-                <input type="checkbox" id="bin" value="bin">
-                <label for="checkbtn">bin</label>
-            </div>
-            <div>
-                <input type="checkbox" id="abi" value="abi">
-                <label for="checkbtn1">abi</label>
-            </div>
-        </div>
-        <div class="text">
-            <label for="text">Paste your smart contract here:</label>
-            <br>
-            <textarea type="text" style="width: 500px; height: 300px;" id="contractPaste"></textarea>
-            <br>
-            <button class="inputbtn" id="clicked" onclick="myFunction()">Submit</button>
-        </div>
-        <div class="show-data"></div>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Solidity Compiler GUI</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/style.css') }}"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      function myFunction() {
+        var compilerVersion = $("#compiler-versions").val();
+        var bin = document.querySelector("#bin").checked;
+        var abi = document.querySelector("#abi").checked;
+        var contractPaste = $("#contractPaste").val();
+        $.ajax({
+          url: "/join",
+          type: "POST",
+          data: {
+            compilerVersion: compilerVersion,
+            bin: bin,
+            abi: abi,
+            contract: contractPaste,
+          },
+        }).done(function (response) {
+          var html = "<br><p><b> <b><p>";
+          $(".show-data").empty();
+          response = response.result;
+          $.each(response, function (key, val) {
+            console.log(val);
+            html += "<p>" + val + "<p>";
+          });
+          html += "<br>";
+          $(".show-data").append(html);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="welcome-text">
+        <h1>Solidity <span>Compiler</span></h1>
+      </div>
+    </header>
+    <div class="dropdown">
+      <label for="compiler-versions">Choose a compiler version:</label><br />
+      <select name="compiler-versions" id="compiler-versions">
+        <option value="0.8.15">0.8.15</option>
+        <option value="0.8.14">0.8.14</option>
+        <option value="0.8.13">0.8.13</option>
+        <option value="0.8.12">0.8.12</option>
+        <option value="0.8.11">0.8.11</option>
+        <option value="0.8.10">0.8.10</option>
+        <option value="0.8.9">0.8.9</option>
+        <option value="0.8.8">0.8.8</option>
+        <option value="0.8.7">0.8.7</option>
+        <option value="0.8.6">0.8.6</option>
+        <option value="0.8.5">0.8.5</option>
+        <option value="0.8.4">0.8.4</option>
+        <option value="0.8.3">0.8.3</option>
+        <option value="0.8.2">0.8.2</option>
+        <option value="0.8.1">0.8.1</option>
+        <option value="0.8.0">0.8.0</option>
+      </select>
+    </div>
+    <div class="checkbox">
+      <label for="outputvalues">Choose the output values required:</label>
+      <div>
+        <input type="checkbox" id="bin" value="bin" />
+        <label for="checkbtn">bin</label>
+      </div>
+      <div>
+        <input type="checkbox" id="abi" value="abi" />
+        <label for="checkbtn1">abi</label>
+      </div>
+    </div>
+    <div class="text">
+      <label for="text">Paste your smart contract here:</label>
+      <br />
+      <textarea
+        type="text"
+        style="width: 500px; height: 300px"
+        id="contractPaste"
+      ></textarea>
+      <br />
+      <button class="inputbtn" id="clicked" onclick="myFunction()">
+        Submit
+      </button>
+    </div>
+    <p class="show-data"></p>
+  </body>
 </html>
