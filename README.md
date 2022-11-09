@@ -1,4 +1,4 @@
-# Solidity-Compiler-GUI
+# SolcGUI
 This is GUI version of solc to get bytecode and abi of a smart contract. 
 
 You can install the app locally and use, or you can head to https://solidity-sompiler-gui.herokuapp.com/ to use.
